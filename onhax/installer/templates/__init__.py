@@ -1,0 +1,1 @@
+"""Template module for the installer package."""

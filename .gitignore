@@ -24,60 +24,31 @@ wheels/
 venv/
 env/
 ENV/
-.env
-.venv
-pip-log.txt
-pip-delete-this-directory.txt
+.venv/
 
-# IDE specific files
+# IDE
 .idea/
 .vscode/
 *.swp
 *.swo
-.project
-.pydevproject
-.settings/
-*.sublime-workspace
-*.sublime-project
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs and databases
-*.log
-*.sqlite
-*.db
-
-# Coverage reports
-htmlcov/
-.tox/
+# Testing
 .coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# API Keys and Secrets
-*.pem
-*.key
-*.cert
-secrets.yaml
-secrets.yml
-secrets.json
-
-# Project specific
-node_modules/
+htmlcov/
 .pytest_cache/
-.mypy_cache/ 
-dify-docs/aws-credentials.txt
+
+# Distribution
+dist/
+build/
+
+# Logs
+*.log
+
+# Local configuration
+.env
+.env.local
+.env.*.local
+
+# Operating System
+.DS_Store
+Thumbs.db

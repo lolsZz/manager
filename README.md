@@ -1,4 +1,88 @@
-# DeepSeek Engineer 🐋
+# OnHax 🚀
+
+AI-powered code generation and project automation tool.
+
+## Overview
+
+OnHax is a powerful tool that helps developers generate and manage code using AI. It leverages
+the DeepSeek API to provide intelligent code generation capabilities while maintaining a clean
+and maintainable codebase.
+
+## Features
+
+- AI-powered code generation
+- Project structure automation
+- Customizable templates
+- Command-line interface
+- Python API for integration
+- Extensive configuration options
+
+## Quick Start
+
+```bash
+# Install using pip
+pip install onhax
+
+# Or using uv (recommended)
+uv pip install onhax
+```
+
+## Project Structure
+
+```
+onhax/
+├── docs/              # Documentation
+├── examples/          # Usage examples
+├── onhax/            # Main package
+│   ├── app.py        # Core application
+│   ├── client.py     # API client
+│   ├── config.py     # Configuration
+│   └── installer/    # Installation utilities
+├── tests/            # Test suite
+├── .github/          # GitHub workflows
+├── pyproject.toml    # Project configuration
+└── README.md         # This file
+```
+
+## Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/onhax.git
+   cd onhax
+   ```
+
+2. Install development dependencies:
+   ```bash
+   pip install -e ".[dev]"
+   ```
+
+3. Install pre-commit hooks:
+   ```bash
+   pre-commit install
+   ```
+
+4. Run tests:
+   ```bash
+   pytest
+   ```
+
+## Documentation
+
+For detailed documentation, see the [docs](docs/) directory:
+
+- [Installation Guide](docs/installation.md)
+- [Usage Guide](docs/usage.md)
+- [API Reference](docs/api-reference.md)
+- [Contributing Guide](CONTRIBUTING.md)
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Credits
+
+Built with ❤️ using DeepSeek's powerful AI technology.
 
 ## Overview
 
