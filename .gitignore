@@ -80,3 +80,4 @@ secrets.json
 node_modules/
 .pytest_cache/
 .mypy_cache/ 
+dify-docs/aws-credentials.txt
