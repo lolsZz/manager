@@ -49,13 +49,13 @@ We use several tools to maintain code quality:
    black .
    ```
 
-2. **isort**: Import sorting
+1. **isort**: Import sorting
 
    ```bash
    isort .
    ```
 
-3. **mypy**: Type checking
+1. **mypy**: Type checking
 
    ```bash
    mypy .
@@ -101,7 +101,7 @@ pytest tests/test_app.py
    git checkout -b feature/your-feature-name
    ```
 
-2. Make changes and ensure tests pass:
+1. Make changes and ensure tests pass:
 
    ```bash
    pytest

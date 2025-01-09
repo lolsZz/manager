@@ -46,7 +46,7 @@ sudo apt upgrade -y
 sudo apt install -y build-essential curl wget git
 ```
 
-### Step 1: Install Node.js
+### Step 1. Install Node.js
 
 The frontend requires Node.js version 18.x (LTS):
 
@@ -58,7 +58,7 @@ node --version # Should be 18.x
 npm --version
 ```
 
-### Step 2: Install Python
+### Step 2. Install Python
 
 The backend requires Python 3.11.x or 3.12.x. For Ubuntu, Python 3.12 can be installed from a PPA:
 
@@ -72,7 +72,7 @@ sudo apt install -y python3.12 python3.12-venv python3.12-dev python3-pip
 python3.12 --version
 ```
 
-### Step 3: Install Docker and Docker Compose
+### Step 3. Install Docker and Docker Compose
 
 Required for running middleware services:
 
@@ -86,14 +86,14 @@ sudo usermod -aG docker $USER
 sudo apt install -y docker-compose
 ```
 
-### Step 4: Clone the Repository
+### Step 4. Clone the Repository
 
 ```bash
 git clone https://github.com/langgenius/dify.git
 cd dify
 ```
 
-### Step 5: Setup Backend (API)
+### Step 5. Setup Backend (API)
 
 1. Create and activate virtual environment:
 
@@ -103,13 +103,13 @@ python3.12 -m venv venv
 source venv/bin/activate
 ```
 
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure environment:
+1. Configure environment:
 
 ```bash
 cp .env.example .env
@@ -147,7 +147,7 @@ flask init
 flask run
 ```
 
-### Step 6: Setup Frontend (Web)
+### Step 6. Setup Frontend (Web)
 
 1. Install dependencies:
 
@@ -156,7 +156,7 @@ cd ../web
 npm install
 ```
 
-2. Configure environment:
+1. Configure environment:
 
 ```bash
 cp .env.example .env

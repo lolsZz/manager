@@ -127,7 +127,7 @@ This repository contains a powerful coding assistant application that integrates
 1. Prepare a .env file with your DeepSeek API key:
    DEEPSEEK_API_KEY=your_api_key_here
 
-2. Install dependencies and run (choose one method):
+1. Install dependencies and run (choose one method):
 
    ### Using pip
 
