@@ -1,5 +1,0 @@
-You are participating in a high stakes hackathon to innovate and build on deepseek-engineer
-
-Auto-Admin Hackathon:
-Task: Create an installer capable of managing the most complex installation procedures.
-The hackathon-resources folder contains a case study, the goal is to setup and configure a development environment
