@@ -4,7 +4,7 @@
 
 Main application class for generating and managing code.
 
-### Methods
+### OnHaxApp Methods
 
 #### `__init__(config: Optional[Config] = None) -> None`
 
@@ -23,6 +23,7 @@ Generate code based on the provided prompt.
 - `prompt`: The natural language prompt describing the code to generate.
 
 **Returns:**
+
 - The generated code as a string.
 
 **Raises:**
@@ -55,7 +56,7 @@ Configuration class for OnHax application.
 - `max_tokens`: Maximum number of tokens in generated response.
 - `temperature`: Sampling temperature for generation (0.0-1.0).
 
-### Methods
+### Config Methods
 
 #### `is_configured() -> bool`
 
@@ -66,13 +67,14 @@ Check if the configuration is complete and valid.
 Validate the configuration settings.
 
 **Raises:**
+
 - `ValueError`: If any configuration values are invalid.
 
 ## DeepSeekClient
 
 Client for interacting with the DeepSeek API.
 
-### Methods
+### DeepSeekClient Methods
 
 #### `__init__(config: Config)`
 
