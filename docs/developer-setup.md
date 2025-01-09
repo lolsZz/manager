@@ -11,12 +11,14 @@ This guide provides detailed instructions for setting up OnHax for development.
 ## Initial Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/onhax.git
    cd onhax
    ```
 
 2. Create and activate a virtual environment:
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # Unix
@@ -24,11 +26,13 @@ This guide provides detailed instructions for setting up OnHax for development.
    ```
 
 3. Install development dependencies:
+
    ```bash
    pip install -e ".[dev]"
    ```
 
 4. Install pre-commit hooks:
+
    ```bash
    pre-commit install
    ```
@@ -40,21 +44,25 @@ This guide provides detailed instructions for setting up OnHax for development.
 We use several tools to maintain code quality:
 
 1. **Black**: Code formatting
+
    ```bash
    black .
    ```
 
 2. **isort**: Import sorting
+
    ```bash
    isort .
    ```
 
 3. **mypy**: Type checking
+
    ```bash
    mypy .
    ```
 
 4. **flake8**: Linting
+
    ```bash
    flake8 .
    ```
@@ -62,6 +70,7 @@ We use several tools to maintain code quality:
 ### Testing
 
 Run tests using pytest:
+
 ```bash
 # Run all tests
 pytest
@@ -87,22 +96,26 @@ pytest tests/test_app.py
 ## Making Changes
 
 1. Create a new branch:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 2. Make changes and ensure tests pass:
+
    ```bash
    pytest
    ```
 
 3. Commit changes:
+
    ```bash
    git add .
    git commit -m "Description of changes"
    ```
 
 4. Push changes and create pull request:
+
    ```bash
    git push origin feature/your-feature-name
    ```

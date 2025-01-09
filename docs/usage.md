@@ -23,7 +23,9 @@ onhax generate "Create a React component"
 ## Advanced Features
 
 ### Custom Templates
+
 ### Configuration Options
+
 ### Integration with IDEs
 
 For more examples, see the [examples directory](../examples/).
