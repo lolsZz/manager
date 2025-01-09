@@ -84,13 +84,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Built with ❤️ using DeepSeek's powerful AI technology.
 
-## Overview
-
 This repository contains a powerful coding assistant application that integrates with the DeepSeek API to process user conversations and generate structured JSON responses. Through an intuitive command-line interface, it can read local file contents, create new files, and apply diff edits to existing files in real time.
 
 ## Key Features
 
 1. DeepSeek Client Configuration
+
    - Automatically configures an API client to use the DeepSeek service with a valid DEEPSEEK_API_KEY. 
    - Connects to the DeepSeek endpoint specified in the environment variable to stream GPT-like completions. 
 
@@ -131,12 +130,14 @@ This repository contains a powerful coding assistant application that integrates
 2. Install dependencies and run (choose one method):
 
    ### Using pip
+
    ```bash
    pip install -r requirements.txt
    python3 main.py
    ```
 
    ### Using uv (faster alternative)
+
    ```bash
    uv venv
 

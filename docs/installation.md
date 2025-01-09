@@ -25,12 +25,14 @@ uv pip install onhax
 ### Development Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/onhax.git
    cd onhax
    ```
 
 2. Install dependencies:
+
    ```bash
    pip install -e ".[dev]"
    ```
