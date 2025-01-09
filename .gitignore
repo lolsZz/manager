@@ -52,3 +52,4 @@ build/
 # Operating System
 .DS_Store
 Thumbs.db
+hax.code-workspace
