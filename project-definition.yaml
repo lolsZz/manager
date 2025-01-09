@@ -1,0 +1,132 @@
+# Example Project Definition showing how setup-instructions.md maps to automation
+
+# Project Information
+name: Dify
+repository: https://github.com/langgenius/dify.git
+docs:
+  setup: setup-instructions.md
+
+# Direct Mapping from Documentation to Automation
+mappings:
+  - doc_section: "Phase 2: Development Environment Setup Procedure"
+    subsections:
+      - title: "Prerequisites"
+        code: |
+          def check_prerequisites(self):
+              required = ['git', 'python3', 'node', 'npm', 'docker']
+              # Maps to manual checks in setup-instructions.md
+              for cmd in required:
+                  if not shutil.which(cmd):
+                      raise RuntimeError(f"{cmd} is not installed")
+
+      - title: "Step 1: Install Node.js"
+        doc_commands:
+          - "curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -"
+          - "sudo apt-get install -y nodejs"
+        automated_by: |
+          def install_nodejs(self):
+              # Handles OS-specific installation automatically
+              system_manager.install_nodejs()
+
+      - title: "Step 2: Install Python"
+        doc_commands:
+          - "python3 -m venv venv"
+          - "source venv/bin/activate"
+        automated_by: |
+          def setup_python_environment(self):
+              venv_path = os.path.join(self.installation_path, 'venv')
+              subprocess.run([sys.executable, '-m', 'venv', venv_path])
+
+      - title: "Step 3: Install Docker and Docker Compose"
+        doc_commands:
+          - "sudo apt-get update"
+          - "sudo apt-get install docker-ce docker-ce-cli containerd.io"
+        automated_by: |
+          def setup_docker(self):
+              system_manager.install_docker()
+              system_manager.start_service('docker')
+
+      - title: "Step 4: Clone the Repository"
+        doc_commands:
+          - "git clone https://github.com/langgenius/dify.git"
+        automated_by: |
+          def clone_repository(self):
+              subprocess.run(['git', 'clone', self.repo_url])
+
+      - title: "Step 5: Setup Backend (API)"
+        doc_commands:
+          - "cd api"
+          - "cp .env.example .env"
+          - "flask db upgrade"
+        automated_by: |
+          def setup_backend(self):
+              os.chdir(os.path.join(self.path, 'api'))
+              shutil.copy('.env.example', '.env')
+              subprocess.run(['flask', 'db', 'upgrade'])
+
+      - title: "Step 6: Setup Frontend (Web)"
+        doc_commands:
+          - "cd web"
+          - "cp .env.example .env"
+          - "npm install"
+          - "npm run build"
+        automated_by: |
+          def setup_frontend(self):
+              os.chdir(os.path.join(self.path, 'web'))
+              shutil.copy('.env.example', '.env')
+              subprocess.run(['npm', 'install'])
+              subprocess.run(['npm', 'run', 'build'])
+
+# Environment Configuration
+environment:
+  backend:
+    env_file: api/.env
+    variables:
+      - name: DATABASE_URL
+        value: "postgresql://postgres:password@localhost:5432/dify"
+      - name: REDIS_URL
+        value: "redis://localhost:6379/0"
+  
+  frontend:
+    env_file: web/.env
+    variables:
+      - name: NEXT_PUBLIC_API_URL
+        value: "http://localhost:5001"
+
+# System Requirements
+prerequisites:
+  packages:
+    - git
+    - python3
+    - nodejs
+    - docker
+  services:
+    - name: postgres
+      version: "14"
+    - name: redis
+      version: "6"
+
+# Verification Steps
+verification:
+  steps:
+    - name: "Check Database"
+      command: "flask db status"
+      path: "./api"
+    - name: "Check Backend API"
+      command: "curl http://localhost:5001/api/health"
+    - name: "Check Frontend"
+      command: "curl http://localhost:3000"
+
+# This format can be applied to any GitHub project
+example_other_project:
+  name: "Example Project"
+  repository: "https://github.com/user/project.git"
+  docs:
+    setup: "docs/installation.md"
+  mappings:
+    - doc_section: "Installation"
+      subsections:
+        - title: "Install Dependencies"
+          automated_by: |
+            def install_deps(self):
+                self.install_system_packages()

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Universal GitHub Project Installer</title>
+    <style>
+        .intro-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .intro-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .intro-section li {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        .config-section {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .status-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-error {
+            background-color: #dc3545;
+            color: white;
+        }
+        .status-pending {
+            background-color: #ffc107;
+            color: black;
+        }
+    </style>
+        .project-selector {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .project-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .project-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .setup-steps {
+            margin-top: 15px;
+        }
+        .step-mapping {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .doc-step {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .code-step {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .future-projects {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border-radius: 5px;
+            color: #856404;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+        .log-container {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+        }
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Universal GitHub Project Installer</h1>
+    <div class="intro-section">
+        <p>This tool automates installation of complex GitHub projects. Currently installing: <strong>Dify</strong></p>
+        <div class="project-info">
+            <h3>About the Project</h3>
+            <p>Dify is an LLM application development platform. The installer automatically follows these steps from the official guide:</p>
+            <div class="setup-steps">
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Prerequisites (from setup-instructions.md)</div>
+                    <div class="code-step">🔄 Auto-detects and installs: git, python3, node.js, npm, docker</div>
+                </div>
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Step 1-3: System Setup</div>
+                    <div class="code-step">🔄 Automatically installs Node.js, Python, and Docker using system-specific commands</div>
+                </div>
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Step 4: Repository</div>
+                    <div class="code-step">🔄 Clones repo and sets up directory structure</div>
+                </div>
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Step 5: Backend</div>
+                    <div class="code-step">🔄 Configures API, databases, and creates admin user</div>
+                </div>
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Step 6: Frontend</div>
+                    <div class="code-step">🔄 Sets up web interface and builds assets</div>
+                </div>
+                <div class="step-mapping">
+                    <div class="doc-step">📋 Verification</div>
+                    <div class="code-step">🔄 Tests all components and verifies functionality</div>
+                </div>
+            </div>
+        </div>
+        <ul>
+            <li>⚙️ Installing prerequisites (Node.js, Python, Docker)</li>
+            <li>🔄 Setting up databases (PostgreSQL, Redis)</li>
+            <li>🚀 Configuring backend and frontend</li>
+            <li>✅ Verifying the installation</li>
+        </ul>
+        <div class="config-section">
+            <h3>Installation Configuration</h3>
+            <form id="config-form">
+                <div class="form-group">
+                    <label>Installation Path:</label>
+                    <input type="text" id="install-path" value="~/dify" />
+                </div>
+                <div class="form-group">
+                    <label>Admin Email:</label>
+                    <input type="email" id="admin-email" value="admin@dify.ai" />
+                </div>
+                <div class="form-group">
+                    <label>Admin Password:</label>
+                    <input type="password" id="admin-password" value="password" />
+                </div>
+                <div class="form-group">
+                    <label>Database Password:</label>
+                    <input type="password" id="db-password" value="password" />
+                </div>
+            </form>
+        <div class="future-projects">
+                <h4>🚀 Universal GitHub Project Support</h4>
+                <p>This installer can be adapted for any GitHub project! Define your project:</p>
+                <pre>
+{
+  "project": {
+    "name": "Your Project",
+    "repo": "github.com/user/project",
+    "requires": ["node", "python", "docker"],
+    "steps": [
+      {"type": "env", "file": ".env.example"},
+      {"type": "service", "name": "postgres"},
+      {"type": "command", "run": "npm install"}
+    ]
+  }
+}</pre>
+            </div>
+        </div>
+    </div>
+    <div class="step">
+        <h3>Current Step: <span id="current-step">Not started</span></h3>
+        <div class="progress-bar">
+            <div class="progress" id="progress" style="width: 0%"></div>
+        </div>
+    </div>
+    <div class="project-selector">
+        <h3>Choose Project to Install</h3>
+        <select id="project-select" onchange="updateProjectInfo()">
+            <option value="dify">Dify - LLM Application Platform</option>
+            <option value="custom" disabled>Custom Project (Coming Soon)</option>
+        </select>
+    </div>
+    <button id="start-button" class="button" onclick="startInstallation()">Start Automated Installation</button>
+    <div class="help-text">
+        <p>This universal installer reads project setup requirements and automates installation:</p>
+        <ol>
+            <li>Reads official setup guide (setup-instructions.md)</li>
+            <li>Maps steps to automated actions</li>
+            <li>Handles OS-specific package installation</li>
+            <li>Configures all components automatically</li>
+            <li>Verifies successful installation</li>
+        </ol>
+        <p>View the mapping details in the project info section above or check <a href="https://github.com/langgenius/dify/blob/main/docs/getting-started/install-self-hosted.md" target="_blank">official guide</a>.</p>
+    </div>
+    <h3>Installation Log:</h3>
+    <div class="log-container" id="log"></div>
+
+    <script>
+        let isInstallationRunning = false;
+
+        async function startInstallation() {
+            // Save configuration first
+            const config = {
+                installPath: document.getElementById('install-path').value,
+                adminEmail: document.getElementById('admin-email').value,
+                adminPassword: document.getElementById('admin-password').value,
+                dbPassword: document.getElementById('db-password').value
+            };
+            
+            try {
+                await fetch('/api/config', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(config)
+                });
+            } catch (e) {
+                alert('Failed to save configuration: ' + e.message);
+                return;
+            }
+            if (isInstallationRunning) return;
+            
+            isInstallationRunning = true;
+            document.getElementById('start-button').disabled = true;
+            
+            fetch('/api/start', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  updateStatus();
+              });
+        }
+
+        function updateStatus() {
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('current-step').textContent = data.current_step;
+                    document.getElementById('progress').style.width = `${data.progress}%`;
+                    
+                    const logContainer = document.getElementById('log');
+                    logContainer.innerHTML = data.logs.map(log => `<div>${log}</div>`).join('');
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                    
+                    if (data.status !== 'complete' && data.status !== 'failed') {
+                        setTimeout(updateStatus, 1000);
+                    } else if (data.status === 'failed') {
+                        isInstallationRunning = false;
+                        document.getElementById('start-button').disabled = false;
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
