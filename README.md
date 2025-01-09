@@ -47,22 +47,26 @@ onhax/
 ## Development
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/onhax.git
    cd onhax
    ```
 
 2. Install development dependencies:
+
    ```bash
    pip install -e ".[dev]"
    ```
 
 3. Install pre-commit hooks:
+
    ```bash
    pre-commit install
    ```
 
 4. Run tests:
+
    ```bash
    pytest
    ```
@@ -90,8 +94,8 @@ This repository contains a powerful coding assistant application that integrates
 
 1. DeepSeek Client Configuration
 
-   - Automatically configures an API client to use the DeepSeek service with a valid DEEPSEEK_API_KEY. 
-   - Connects to the DeepSeek endpoint specified in the environment variable to stream GPT-like completions. 
+   - Automatically configures an API client to use the DeepSeek service with a valid DEEPSEEK_API_KEY.
+   - Connects to the DeepSeek endpoint specified in the environment variable to stream GPT-like completions.
 
 2. Data Models
    - Leverages Pydantic for type-safe handling of file operations, including:
@@ -127,7 +131,7 @@ This repository contains a powerful coding assistant application that integrates
 1. Prepare a .env file with your DeepSeek API key:
    DEEPSEEK_API_KEY=your_api_key_here
 
-1. Install dependencies and run (choose one method):
+2. Install dependencies and run (choose one method):
 
    ### Using pip
 
@@ -147,4 +151,3 @@ This repository contains a powerful coding assistant application that integrates
 3. Enjoy multi-line streaming responses, file read-ins with "/add path/to/file", and precise file edits when approved.
 
 > **Note**: This is an experimental project developed by Skirano to test the new DeepSeek v3 API capabilities. It was developed as a rapid prototype and should be used accordingly.
-
