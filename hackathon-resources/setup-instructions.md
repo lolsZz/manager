@@ -34,12 +34,14 @@
 ### Prerequisites
 
 1. Update Ubuntu System
+
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
 2. Install System Dependencies
+
 ```bash
 sudo apt install -y build-essential curl wget git
 ```
@@ -94,6 +96,7 @@ cd dify
 ### Step 5: Setup Backend (API)
 
 1. Create and activate virtual environment:
+
 ```bash
 cd api
 python3.12 -m venv venv
@@ -101,11 +104,13 @@ source venv/bin/activate
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Configure environment:
+
 ```bash
 cp .env.example .env
 # Generate a secret key
@@ -122,12 +127,14 @@ openssl rand -base64 42
 ```
 
 4. Start required middleware services:
+
 ```bash
 cd ../docker
 docker-compose -f docker-compose.middleware.yaml up -d
 ```
 
 5. Initialize database:
+
 ```bash
 cd ../api
 flask db upgrade
@@ -135,6 +142,7 @@ flask init
 ```
 
 6. Start backend server:
+
 ```bash
 flask run
 ```
@@ -142,17 +150,20 @@ flask run
 ### Step 6: Setup Frontend (Web)
 
 1. Install dependencies:
+
 ```bash
 cd ../web
 npm install
 ```
 
 2. Configure environment:
+
 ```bash
 cp .env.example .env
 ```
 
 3. Start development server:
+
 ```bash
 npm run dev
 ```
@@ -162,6 +173,7 @@ npm run dev
 #### Project Structure Overview
 
 The project is split into two main parts:
+
 - Backend (api/): A Flask-based Python application
 - Frontend (web/): A Next.js-based TypeScript/React application
 
@@ -174,6 +186,7 @@ export FLASK_DEBUG=1
 ```
 
 The backend code (api/) is organized as follows:
+
 - `constants/` - Constant settings used throughout code base
 - `controllers/` - API route definitions and request handling logic
 - `core/` - Core application orchestration, model integrations, and tools
@@ -192,16 +205,19 @@ The backend code (api/) is organized as follows:
 ### Verification Steps
 
 1. Verify backend is running:
+
 ```bash
 curl http://localhost:5001/health
 # Should return a success response
 ```
 
 2. Verify frontend is running:
-- Open http://localhost:3000 in your browser
+
+- Open <http://localhost:3000> in your browser
 - You should see the Dify login page
 
 3. Verify middleware services:
+
 ```bash
 docker ps
 # Should show running containers for:
@@ -214,6 +230,7 @@ docker ps
 ### Development Tools (Optional)
 
 1. Install development tools for better coding experience:
+
 ```bash
 # For backend
 pip install black flake8 pytest
@@ -245,7 +262,9 @@ Common issues and solutions:
 ### Development Tips
 
 #### Frontend Development
+
 - For frontend development, you can use:
+
   ```bash
   # Run development server with hot reloading
   npm run dev
@@ -258,24 +277,29 @@ Common issues and solutions:
   ```
 
 #### Backend Development
+
 - For backend testing:
+
   ```bash
   # Run tests
   pytest
   # Run specific test file
   pytest tests/test_file.py
   ```
+
 - Python virtual environment should be activated before running any backend commands
 - Backend server runs in debug mode with auto-reloading when FLASK_DEBUG=1
 
 ### Contributing Guidelines
 
 1. Create a new branch for your changes:
+
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
 2. Make your changes and commit them:
+
 ```bash
 git add .
 git commit -m "Description of your changes"
