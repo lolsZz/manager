@@ -11,6 +11,7 @@ Main application class for generating and managing code.
 Initialize the OnHaxApp with configuration.
 
 **Args:**
+
 - `config`: Optional configuration instance. If not provided, a new one will be created.
 
 #### `generate_code(prompt: str) -> str`
@@ -18,12 +19,14 @@ Initialize the OnHaxApp with configuration.
 Generate code based on the provided prompt.
 
 **Args:**
+
 - `prompt`: The natural language prompt describing the code to generate.
 
 **Returns:**
 - The generated code as a string.
 
 **Raises:**
+
 - `ConnectionError`: If the API request fails.
 - `ValueError`: If the prompt is empty or invalid.
 
@@ -32,10 +35,12 @@ Generate code based on the provided prompt.
 Save generated code to a file.
 
 **Args:**
+
 - `code`: The code content to save.
 - `filename`: The path where the code should be saved.
 
 **Raises:**
+
 - `OSError`: If there is an error writing to the file.
 - `ValueError`: If code or filename is empty.
 
@@ -74,9 +79,11 @@ Client for interacting with the DeepSeek API.
 Initialize the DeepSeek API client.
 
 **Args:**
+
 - `config`: Configuration instance containing API credentials.
 
 **Raises:**
+
 - `ValueError`: If the config is not properly configured.
 
 #### `query(prompt: str) -> Dict[str, Any]`
@@ -84,12 +91,15 @@ Initialize the DeepSeek API client.
 Send a query to the DeepSeek API.
 
 **Args:**
+
 - `prompt`: The natural language prompt for code generation.
 
 **Returns:**
+
 - Response from the API containing generated code and metadata.
 
 **Raises:**
+
 - `ConnectionError`: If the API request fails.
 - `ValueError`: If the prompt is empty or invalid.
 - `RequestException`: If there is an error communicating with the API.
@@ -99,4 +109,5 @@ Send a query to the DeepSeek API.
 Validate the API connection and credentials.
 
 **Returns:**
+
 - True if connection is valid, False otherwise.
